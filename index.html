@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,  initial-scale=1">
+        <title>Crestron CH5 Basic</title>
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="./node_modules/@crestron/ch5-theme/output/themes/light-theme.css" />
+    </head>
+    <body>
+        <div class="top-bar">
+            <div class="header-icon">
+                <img id="logo-img" src="./assets/images/globe.png">
+            </div>
+            <div class="header-center">
+                <h1 id="header-text">CH5 Basic Example</h1>
+            </div>
+            
+            <!-- Some text from processor serial join 4 -->
+            <div class="header-dynamic-text" data-ch5-textcontent="4">
+                
+            </div>
+            
+        </div>
+        <div class="middle-bar">
+            <!-- This one gets basic text from the processor on serial join 1 -->
+            <ch5-button class="just-a-btn"
+                customclass="just-a-btn-custom"
+                customclasspressed="just-a-btn-custom-pressed"
+                sendeventonclick="11"
+                receivestateselected="11"
+                receivestatelabel="1"
+                iconurl="assets/images/Home.png"
+                iconposition="top"
+            >
+            </ch5-button>
+            <!-- This one gets formatted text from the processor on serial join 2 and the icon from serial join 3 -->
+            <ch5-button class="just-a-btn"
+                customclass="just-a-btn-custom"
+                customclasspressed="just-a-btn-custom-pressed"
+                sendeventonclick="12"
+                receivestateselected="12"
+                receivestatescriptlabelhtml="2"
+                receivestateiconurl="3"
+            >
+            </ch5-button>
+            <!-- Change the text color, just on this button -->
+            <ch5-button 
+                class="just-a-btn"
+                customclass="just-a-btn-custom"
+                customclasspressed="just-a-btn-custom-pressed"
+                sendeventonclick="13"
+                label="Clear"
+                customstyle="color: aqua"
+            >
+            </ch5-button>
+        </div>
+
+        <div class="bottom-bar">
+            <!-- Text input serial join 5-->
+            <div class="bottom-bar-left">
+                <h2 class="h2-centre">Input text</h2>
+                <ch5-textinput
+                    class="text-input"
+                    placeholder="text input"
+                    sendeventonchange="5"
+                    receivestatevalue="5"
+                >
+                </ch5-textinput>
+            </div>
+            <!-- Feedback on serial 5 -->
+            <div class="bottom-bar-right">
+                <h2 class="h2-centre">Input text feedback</h2>
+                <div class="header-dynamic-text" data-ch5-textcontent="5"></div>
+            </div>
+            
+                
+            </div>
+        </div>
+        <script src="./node_modules/@crestron/ch5-crcomlib/build_bundles/umd/cr-com-lib.js"></script>
+        <!-- Comment 2 lines below before archiving or they will run the emulator on the touchpanel -->
+        <script src="./assets/vendor/service.js"></script>
+        <script src="./assets/vendor/app.js"></script>
+        <!--*************************************************************************************-->
+    </body>
+</html>
